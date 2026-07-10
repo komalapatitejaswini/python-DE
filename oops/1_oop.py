@@ -224,7 +224,7 @@
 
 # 14. Create a class with both static and class methods and demonstrate the difference.
 
-
+# class Person:
 
 
 

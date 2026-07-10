@@ -188,13 +188,72 @@
 #     prefix += ch
 # print(prefix)
 #
-text_original=['rate','mate','date','eat']
-prefix='sub'
-# sufix='less'
-# print("previous no.",text_original)
-for each in text_original:
-    new_text=prefix+each
-    text_original.append(new_text)
-    # new_sufix=each+sufix
-# print(new_sufix)
-print(text_original)
+# text_original=['rate','mate','date','eat']
+# prefix='sub'
+# # sufix='less'
+# # print("previous no.",text_original)
+# for each in text_original:
+#     new_text=prefix+each
+#     text_original.append(new_text)
+#     # new_sufix=each+sufix
+# # print(new_sufix)
+# print(text_original)
+
+
+
+"""
+Return the sum of the numbers in the array, returning 0 for an empty array.
+Except the number 13 is very unlucky,
+so it does not count and numbers that come immediately after a 13 also do not count.
+"""
+def sum13(nums):
+  total=0
+  skip=False
+  for num in nums:
+    if skip:
+      skip=False
+      continue
+    if num==13:
+       skip=True
+       continue
+    total+=num
+  return total
+print(sum13([1,2,3,13,4]))
+
+"""
+
+Return the sum of the numbers in the array, except ignore sections of numbers starting with a 6 and 
+extending to the next 7 (every 6 will be followed by at least one 7). Return 0 for no numbers.
+"""
+
+
+def sum67(nums):
+  if len(nums)==0:
+    return 0
+  skip=False
+  sum=0
+  for ele in nums:
+    if skip:
+      if ele==7:
+        skip=False
+      continue
+    if ele==6:
+      skip=True
+      continue
+    else:
+      sum+=ele
+  return sum
+
+"""
+
+Return the "centered" average of an array of ints, which we'll say is the mean average of the values,
+except ignoring the largest and smallest values in the array. 
+If there are multiple copies of the smallest value, ignore just one copy, and likewise for the largest value.
+Use int division to produce the final average. You may assume that the array is length 3 or more.
+"""
+def centered_average(nums):
+  total = sum(nums)
+  total -= min(nums)
+  total -= max(nums)
+  return total/(len(nums) - 2)
+

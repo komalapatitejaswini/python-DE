@@ -85,10 +85,10 @@
 # s1=""
 # for each in s:
 #     if each==" ":
-#         each="-"
-#         s1+=each
-#     elif each != " ":
-#             s1 += each
+#         # each="-"
+#         s1+="-"
+#     else:
+#         s1 += each
 # print(s1)
 
 # 16.convert all Lowercase letters in a string to uppercase
@@ -115,17 +115,17 @@
 
 # 18.split a sentence into words and print each word on a new line
 
-s=input("Enter a string: ")
-##Hello world
-s1=s.strip()
-each_word=""
-for idx in range(len(s1)):
-    if s[idx] != " " or  idx ==0:
-        each_word=each_word+s[idx]
-    if s[idx-1] == " ":
-        print()
-    print(each_word,end="")
-    each_word = ""
+# s=input("Enter a string: ")
+# ##Hello world
+# s1=s.strip()
+# each_word=""
+# for idx in range(len(s1)):
+#     if s[idx] != " " or  idx ==0:
+#         each_word=each_word+s[idx]
+#     if s[idx-1] == " ":
+#         print()
+#     print(each_word,end="")
+#     each_word = ""
 
 # sentence=input("Enter a sentence: ")
 # word=""
@@ -138,6 +138,7 @@ for idx in range(len(s1)):
 # print(word)
 
 # 19. frequency of each character in a string
+
 # string=input("Enter a string: ")
 # visited=""
 # count=0
@@ -150,10 +151,39 @@ for idx in range(len(s1)):
 #         print(char,":",count)
 #         visited+=char
 
+"""
+Return the number of times that the string "code" appears anywhere in the given string,
+except we'll accept any letter for the 'd', so "cope" and "cooe" count.
+"""
+def count_code(str):
+  c=0
+  for i in range(len(str)-3):
+    if str[i]=="c" and str[i+1]=="o" and str[i+3]=="e":
+      c+=1
+  return c
+
+# print(count_code("codejgvhfkcofe"))
+# print(count_code("o"))
+print(count_code("co"))
 
 
-
-
+#
+"""
+Return True if the given string contains an appearance of "xyz" 
+where the xyz is not directly preceeded by a period (.).
+ So "xxyz" counts but "x.xyz" does not.
+"""
+# def xyz_there(str):
+#   for i in range(len(str) - 2):
+#     if str[i:i+3] == 'xyz':
+#       if i == 0 or str[i-1] != '.':
+#         return True
+#   return False
+#
+# print(xyz_there("xyz"))
+# print(xyz_there(".xyz"))
+# print(xyz_there("xyz.xyz"))
+# print(xyz_there("xy.xyz"))
 
 
 
